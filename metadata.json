@@ -1,0 +1,7 @@
+{
+  "name": "PharmaAID",
+  "description": "An AI-powered prescription assistant that decodes handwritten medical notes to improve patient safety.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
