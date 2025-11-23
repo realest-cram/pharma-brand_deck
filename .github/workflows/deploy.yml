@@ -26,8 +26,6 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Clean npm artifacts
-        run: rm -f package-lock.json
 
       - name: Install dependencies
         run: npm install

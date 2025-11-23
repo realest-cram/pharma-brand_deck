@@ -56,7 +56,7 @@ const Mascot: React.FC<MascotProps> = ({ emotion = 'happy', className = '' }) =>
 
         {/* Happy / Default */}
         {emotion === 'happy' && (
-          <g className={blinkAnim} transform-origin="100 75">
+          <g className={blinkAnim} style={{ transformOrigin: '100px 75px' }}>
              <circle cx="75" cy="70" r="7" fill={colors.primary} />
              <circle cx="125" cy="70" r="7" fill={colors.primary} />
              <path d="M85 85 Q100 95 115 85" stroke={colors.primary} strokeWidth="4" strokeLinecap="round" />

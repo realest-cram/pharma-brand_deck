@@ -14,20 +14,19 @@ import {
   AlertTriangle,
   Camera,
   Scan,
-  Menu,
-  ChevronRight,
-  Pill,
-  Clock,
-  Printer,
   Settings,
   Wifi,
   Lock,
   X,
-  Info,
   HelpCircle,
-  FileText,
   Ruler
 } from 'lucide-react';
+
+type MascotExpression = {
+  emotion: 'happy' | 'thinking' | 'success' | 'alert';
+  label: string;
+  desc: string;
+};
 
 const Tablet = ({ children, className = '' }: { children?: React.ReactNode, className?: string }) => (
   <div className={`w-[380px] h-[270px] xl:w-[440px] xl:h-[310px] bg-white border-[12px] border-slate-800 rounded-[2rem] overflow-hidden relative shadow-2xl flex flex-col ${className}`}>
@@ -101,7 +100,7 @@ const App: React.FC = () => {
                   { emotion: 'thinking', label: 'Processing', desc: 'Analyzing Image' },
                   { emotion: 'success', label: 'Success', desc: 'Prescription Valid' },
                   { emotion: 'alert', label: 'Concern', desc: 'Error or Warning' },
-                ].map((item: any) => (
+                ].map((item: MascotExpression) => (
                   <div key={item.label} className="flex flex-col items-center group">
                     <div className="w-32 h-32 bg-white rounded-full shadow-sm flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                       <div className="w-24 h-24">

@@ -3,7 +3,15 @@
  * This file is kept as a placeholder for future backend integration.
  */
 
-export const analyzePrescriptionImage = async (base64Image: string): Promise<any> => {
+export type AnalysisResult = {
+  isValidPrescription: boolean;
+  summary: string;
+  medications: string[];
+  safetyAlerts: string[];
+  confidenceScore: number;
+};
+
+export const analyzePrescriptionImage = async (): Promise<AnalysisResult> => {
   console.warn("AI Analysis features are disabled in the GitHub Pages version.");
   return {
     isValidPrescription: false,
