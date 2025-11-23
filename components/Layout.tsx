@@ -1,10 +1,10 @@
 import React from 'react';
-import { Smile, Palette, Layout as LayoutIcon } from 'lucide-react';
+import { Smile, Palette, Layout as LayoutIcon, Smartphone } from 'lucide-react';
 
 interface LayoutProps {
   children: React.ReactNode;
-  activeTab: 'identity' | 'system' | 'ui';
-  onTabChange: (tab: 'identity' | 'system' | 'ui') => void;
+  activeTab: 'identity' | 'system' | 'ui' | 'screens';
+  onTabChange: (tab: 'identity' | 'system' | 'ui' | 'screens') => void;
 }
 
 const Layout: React.FC<LayoutProps> = ({ children, activeTab, onTabChange }) => {
@@ -21,16 +21,17 @@ const Layout: React.FC<LayoutProps> = ({ children, activeTab, onTabChange }) => 
             <span className="font-bold text-xl tracking-tight text-slate-800">PharmaAID <span className="text-slate-400 font-normal text-sm ml-2">Brand Identity</span></span>
           </div>
           
-          <nav className="flex gap-1 bg-slate-100/50 p-1 rounded-full">
+          <nav className="flex gap-1 bg-slate-100/50 p-1 rounded-full overflow-x-auto no-scrollbar">
             {[
               { id: 'identity', label: 'Identity', icon: Smile },
               { id: 'system', label: 'System', icon: Palette },
-              { id: 'ui', label: 'Components', icon: LayoutIcon }
+              { id: 'ui', label: 'Components', icon: LayoutIcon },
+              { id: 'screens', label: 'Screens', icon: Smartphone }
             ].map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => onTabChange(tab.id as any)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all flex items-center gap-2 ${
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all flex items-center gap-2 whitespace-nowrap ${
                   activeTab === tab.id 
                     ? 'bg-white text-emerald-700 shadow-sm' 
                     : 'text-slate-500 hover:text-slate-900 hover:bg-slate-200/50'

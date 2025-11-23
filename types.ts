@@ -13,7 +13,7 @@ export interface TypographySample {
   sample: string;
 }
 
-export type BrandSection = 'identity' | 'system' | 'ui';
+export type BrandSection = 'identity' | 'system' | 'ui' | 'screens';
 
 // Keep these for the UI showcase mockup
 export interface Medication {

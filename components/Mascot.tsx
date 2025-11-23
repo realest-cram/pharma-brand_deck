@@ -1,6 +1,6 @@
 import React from 'react';
 
-type Emotion = 'happy' | 'thinking' | 'waiting' | 'alert' | 'success';
+export type Emotion = 'happy' | 'thinking' | 'waiting' | 'alert' | 'success' | 'shh';
 
 interface MascotProps {
   emotion?: Emotion;
@@ -14,6 +14,7 @@ const Mascot: React.FC<MascotProps> = ({ emotion = 'happy', className = '' }) =>
       case 'alert': return { primary: '#F43F5E', secondary: '#FDA4AF', glow: '#FECDD3', face: '#1E293B' }; // Rose
       case 'thinking': return { primary: '#3B82F6', secondary: '#93C5FD', glow: '#DBEAFE', face: '#1E293B' }; // Blue
       case 'success': return { primary: '#10B981', secondary: '#6EE7B7', glow: '#D1FAE5', face: '#1E293B' }; // Emerald
+      case 'shh': return { primary: '#94A3B8', secondary: '#CBD5E1', glow: '#F1F5F9', face: '#1E293B' }; // Slate
       default: return { primary: '#10B981', secondary: '#6EE7B7', glow: '#D1FAE5', face: '#1E293B' }; // Emerald default
     }
   };
@@ -102,6 +103,17 @@ const Mascot: React.FC<MascotProps> = ({ emotion = 'happy', className = '' }) =>
               <circle cx="75" cy="75" r="6" fill={colors.primary} />
               <circle cx="125" cy="75" r="6" fill={colors.primary} />
               <line x1="90" y1="90" x2="110" y2="90" stroke={colors.primary} strokeWidth="3" strokeLinecap="round" />
+           </g>
+        )}
+
+        {/* Shh / Privacy */}
+        {emotion === 'shh' && (
+           <g>
+              {/* Happy eyes closed/curved */}
+              <path d="M70 75 Q75 70 80 75" stroke={colors.primary} strokeWidth="3" strokeLinecap="round" />
+              <path d="M120 75 Q125 70 130 75" stroke={colors.primary} strokeWidth="3" strokeLinecap="round" />
+              {/* Finger (capsule) */}
+              <rect x="94" y="80" width="12" height="25" rx="6" fill={colors.primary} />
            </g>
         )}
 
