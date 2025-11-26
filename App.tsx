@@ -14,19 +14,20 @@ import {
   AlertTriangle,
   Camera,
   Scan,
+  Menu,
+  ChevronRight,
+  Pill,
+  Clock,
+  Printer,
   Settings,
   Wifi,
   Lock,
   X,
+  Info,
   HelpCircle,
+  FileText,
   Ruler
 } from 'lucide-react';
-
-type MascotExpression = {
-  emotion: 'happy' | 'thinking' | 'success' | 'alert';
-  label: string;
-  desc: string;
-};
 
 const Tablet = ({ children, className = '' }: { children?: React.ReactNode, className?: string }) => (
   <div className={`w-[380px] h-[270px] xl:w-[440px] xl:h-[310px] bg-white border-[12px] border-slate-800 rounded-[2rem] overflow-hidden relative shadow-2xl flex flex-col ${className}`}>
@@ -100,7 +101,7 @@ const App: React.FC = () => {
                   { emotion: 'thinking', label: 'Processing', desc: 'Analyzing Image' },
                   { emotion: 'success', label: 'Success', desc: 'Prescription Valid' },
                   { emotion: 'alert', label: 'Concern', desc: 'Error or Warning' },
-                ].map((item: MascotExpression) => (
+                ].map((item: any) => (
                   <div key={item.label} className="flex flex-col items-center group">
                     <div className="w-32 h-32 bg-white rounded-full shadow-sm flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                       <div className="w-24 h-24">
@@ -371,17 +372,48 @@ const App: React.FC = () => {
                      <h3 className="text-lg font-bold text-slate-900 mb-4 text-center">How to Scan</h3>
                      
                      <div className="grid grid-cols-3 gap-3 flex-1">
+                        {/* Step 1 */}
                         <div className="flex flex-col items-center text-center p-2 bg-slate-50 rounded-xl">
-                           <div className="w-8 h-8 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center font-bold text-sm mb-2">1</div>
-                           <p className="text-xs text-slate-600">Place prescription flat on tray.</p>
+                           <div className="h-10 w-full relative mb-2 flex justify-center items-center overflow-hidden">
+                              <div className="absolute bottom-1 w-12 h-0.5 bg-slate-300"></div>
+                              <div className="w-6 h-8 bg-white border border-slate-300 shadow-sm flex items-center justify-center text-[6px] text-slate-300 animate-bounce">
+                                <FileText className="w-3 h-3 text-emerald-400" />
+                              </div> 
+                           </div>
+                           <p className="text-[10px] text-slate-600 leading-tight">1. Place on tray</p>
                         </div>
-                        <div className="flex flex-col items-center text-center p-2 bg-slate-50 rounded-xl">
-                           <div className="w-8 h-8 bg-slate-200 text-slate-500 rounded-full flex items-center justify-center font-bold text-sm mb-2">2</div>
-                           <p className="text-xs text-slate-600">Align corners with guides.</p>
+
+                        {/* Step 2 */}
+                        <div className="flex flex-col items-center text-center p-2 bg-slate-50 rounded-xl overflow-hidden">
+                            <div className="h-10 w-full relative mb-2 flex justify-center items-center">
+                                {/* Corners - Contract/Pulse */}
+                                <div className="absolute inset-0 flex items-center justify-center">
+                                  <div className="w-8 h-8 relative animate-contract">
+                                     <div className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-emerald-600"></div>
+                                     <div className="absolute top-0 right-0 w-2 h-2 border-t-2 border-r-2 border-emerald-600"></div>
+                                     <div className="absolute bottom-0 left-0 w-2 h-2 border-b-2 border-l-2 border-emerald-600"></div>
+                                     <div className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-emerald-600"></div>
+                                  </div>
+                                </div>
+                                {/* Paper - Wiggle into place */}
+                                <div className="w-5 h-6 bg-white border border-slate-300 shadow-sm animate-align z-10 text-[4px] flex flex-col gap-[2px] p-1 items-center justify-center opacity-80">
+                                   <div className="w-full h-[1px] bg-slate-200"></div>
+                                   <div className="w-full h-[1px] bg-slate-200"></div>
+                                   <div className="w-2/3 h-[1px] bg-slate-200"></div>
+                                </div>
+                            </div>
+                            <p className="text-[10px] text-slate-600 leading-tight">2. Align corners</p>
                         </div>
+
+                        {/* Step 3 */}
                         <div className="flex flex-col items-center text-center p-2 bg-slate-50 rounded-xl">
-                           <div className="w-8 h-8 bg-slate-200 text-slate-500 rounded-full flex items-center justify-center font-bold text-sm mb-2">3</div>
-                           <p className="text-xs text-slate-600">Press capture button.</p>
+                            <div className="h-10 w-full relative mb-2 flex justify-center items-center">
+                                <div className="w-8 h-8 rounded-full border-2 border-slate-300 flex items-center justify-center group">
+                                    <div className="w-6 h-6 bg-emerald-500 rounded-full animate-ping opacity-75 absolute"></div>
+                                    <div className="w-6 h-6 bg-emerald-500 rounded-full relative z-10"></div>
+                                </div>
+                            </div>
+                            <p className="text-[10px] text-slate-600 leading-tight">3. Press capture</p>
                         </div>
                      </div>
 

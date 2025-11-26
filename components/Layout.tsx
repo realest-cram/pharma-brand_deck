@@ -30,7 +30,7 @@ const Layout: React.FC<LayoutProps> = ({ children, activeTab, onTabChange }) => 
             ].map((tab) => (
               <button
                 key={tab.id}
-                onClick={() => onTabChange(tab.id)}
+                onClick={() => onTabChange(tab.id as any)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all flex items-center gap-2 whitespace-nowrap ${
                   activeTab === tab.id 
                     ? 'bg-white text-emerald-700 shadow-sm' 
